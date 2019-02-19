@@ -1,0 +1,61 @@
+---
+- hosts: mqservers
+  become: true
+  vars:
+    rabbitmq_version: "3.7.12"
+    erlang_version: "21"
+
+  tasks:
+    - name: Add erlang repository
+      yum_repository:
+        name: rabbitmq-erlang
+        description: Erlang language for RabbitMQ
+        baseurl: https://dl.bintray.com/rabbitmq/rpm/erlang/{{erlang_version}}/el/7
+        gpgkey: https://dl.bintray.com/rabbitmq/Keys/rabbitmq-release-signing-key.asc
+        repo_gpgcheck: no
+        enabled: yes
+
+    - name: Install erlang runtime
+      yum: name="erlang" state=present
+
+    - name: Install RabbitMQ Server
+      yum:
+        name: https://dl.bintray.com/rabbitmq/all/rabbitmq-server/{{rabbitmq_version}}/rabbitmq-server-{{rabbitmq_version}}-1.el7.noarch.rpm
+        state: present
+
+    - name: Start rabbitmq-server and enable it at boot
+      service: name=rabbitmq-server state=started enabled=yes
+
+    - name: Configure rabbitmq-server
+      copy:
+        content: "[ {rabbit, [{loopback_users, []}, {vm_memory_high_watermark, 0.7}]} ]."
+        dest: /etc/rabbitmq/rabbitmq.config
+        force: no
+      notify:
+        - Restart rabbitmq-server
+
+    - name: Enable RabbitMQ plugins
+      rabbitmq_plugin: names=rabbitmq_management state=enabled
+      notify:
+        - Restart rabbitmq-server
+
+    - name: Check if firewalld.service is present
+      command: systemctl show -p SubState firewalld.service
+      register: firewalld_substate
+
+    - name: Enable firewalld ports for RabbitMQ
+      firewalld:
+        zone: public
+        port: "{{item}}"
+        immediate: true
+        permanent: true
+        state: enabled
+      when: firewalld_substate.stdout != "SubState=dead"
+      with_items:
+        - "15672/tcp"
+        - "5672/tcp"
+        - "5671/tcp"
+
+  handlers:
+    - name: Restart rabbitmq-server
+      service: state=restarted name=rabbitmq-server 

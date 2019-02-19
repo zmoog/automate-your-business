@@ -1,0 +1,10 @@
+[local]
+localhost ansible_connection=local
+
+[all:vars]
+project_env = local
+terraform_workspace = "{{ project_env }}"
+ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
+
+[mqservers]
+mqserver ansible_host=automate.kvm ansible_user=ec2-user ansible_ssh_pass=password
