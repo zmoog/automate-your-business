@@ -38,7 +38,7 @@ data "aws_ami" "server" {
 
   filter {
     name   = "name"
-    values = ["CentOS Linux 7 x86_64 HVM EBS ENA 1901_01-*"]
+    values = ["amzn2-ami-hvm-2.0.2019*-x86_64-gp2"]
   }
 
   filter {
@@ -46,7 +46,7 @@ data "aws_ami" "server" {
     values = ["hvm"]
   }
 
-  owners = ["679593333241"] # CentOS
+  owners = ["amazon"] # Amazon
 }
 
 // https://www.terraform.io/docs/providers/aws/r/instance.html
