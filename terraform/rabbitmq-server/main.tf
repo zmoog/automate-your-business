@@ -6,6 +6,14 @@ provider "aws" {
   region  = "eu-west-1"
 }
 
+terraform {
+  backend "s3" {
+    bucket = "zmoog-automate-your-business-infr"
+    key    = "terraform.tfstate"
+    region = "eu-west-1"
+  }
+}
+
 //
 // VPC — Virtual Private Cloud (https://aws.amazon.com/vpc/)
 //
