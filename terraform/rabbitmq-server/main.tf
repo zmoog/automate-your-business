@@ -9,7 +9,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "zmoog-automate-your-business-infr"
-    key    = "terraform.tfstate"
+    key    = "rabbitmq-server/terraform.tfstate"
     region = "eu-west-1"
   }
 }
