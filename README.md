@@ -1,1 +1,1 @@
-# automate-your-business
+# Automate Your Business
