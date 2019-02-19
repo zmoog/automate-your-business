@@ -55,7 +55,7 @@ resource "aws_instance" "rabbitmq" {
   instance_type = "t2.micro"
 
   subnet_id                   = "${data.aws_subnet.default.id}"
-  key_name                    = "mbranca"
+  key_name                    = "${var.project}"
   vpc_security_group_ids      = ["${aws_security_group.security_group.id}"]
   associate_public_ip_address = true
 
