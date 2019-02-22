@@ -7,3 +7,6 @@
 
 # .tfvars files
 *.tfvars
+
+# .retry Ansible files
+*.retry

@@ -1,7 +1,0 @@
-[all:vars]
-project_env = demo
-terraform_workspace = "{{ project_env }}"
-ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
-
-[mqservers]
-mqserver
