@@ -62,6 +62,7 @@ resource "aws_instance" "rabbitmq" {
   tags = {
     Name        = "rabbitmq-server-${terraform.workspace}"
     Project     = "${var.project}"
+    Group       = "mqservers" 
     Environment = "${terraform.workspace}"
   }
 }
