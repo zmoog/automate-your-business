@@ -11,7 +11,7 @@ $ export AWS_PROFILE=<YOUR PROFILE NAME GOES HERE>
 
 $ terraform init
 
-$ terraform workspace new dev // next time you must use "terraform workspace select dev"
+$ terraform workspace new demo // next time you must use "terraform workspace select demo"
 ```
 
 ### Plan
