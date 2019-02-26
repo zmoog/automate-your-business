@@ -1,3 +1,5 @@
+# https://docs.ansible.com/ansible/latest/plugins/inventory/aws_ec2.html
+#
 plugin: aws_ec2
 regions: # populate inventory with instances in these regions
   - eu-west-1
