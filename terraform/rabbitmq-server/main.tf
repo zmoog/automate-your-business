@@ -60,17 +60,19 @@ resource "aws_instance" "rabbitmq" {
   associate_public_ip_address = true
 
   tags = {
-    Name        = "rabbitmq-server-${terraform.workspace}"
-    Project     = "${var.project}"
-    Group       = "mqservers" 
-    Environment = "${terraform.workspace}"
+    Name         = "rabbitmq-server-${terraform.workspace}"
+    Project      = "${var.project}"
+    Group        = "mqservers"
+    Environment  = "${terraform.workspace}"
+    AutoStartUp  = "on"
+    AutoShutDown = "on"
   }
 }
 
 // https://www.terraform.io/docs/providers/aws/r/security_group.html
 resource "aws_security_group" "security_group" {
   name        = "${var.project}-${terraform.workspace}-sg"
-  description = "Security group for ASG that allows traffic to the EC2 instances"
+  description = "Security group hat allows traffic to and from the EC2 instance"
   vpc_id      = "${data.aws_vpc.default.id}"
 
   ingress {
