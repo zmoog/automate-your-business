@@ -2,7 +2,7 @@
 
 ## Slides
 
-You can view and download the slide deck from [Slideshare](https://www.slideshare.net/zmoog/automate-your-business-133811944). 
+You can view and download the slide deck from [Slideshare](https://www.slideshare.net/zmoog/automate-your-business-133844549/). 
 
 
 ## References
