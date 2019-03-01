@@ -1,8 +1,24 @@
 # Automate Your Business
 
-# Prerequisites
+## Slides
 
-An AWS account with the following resources:
+You can view and download the slide deck from [Slideshare](https://www.slideshare.net/zmoog/automate-your-business-133811944). 
 
-* key pair named `automate-your-business`.
-* S3 bucket to store Terraform states.
+
+## References
+
+### Ansible
+* [Ansible for DevOps - Ansible Book by Jeff Geerling](https://www.ansiblefordevops.com)
+* [About | Jeff Geerling](https://www.jeffgeerling.com/about)
+* [Ansible Galaxy](https://galaxy.ansible.com/geerlingguy)
+
+### Terraform
+* [Terraform: Up and Running](https://www.terraformupandrunning.com)
+* [Yevgeniy Brikman: Home Page](https://www.ybrikman.com/?ref=terraform-up-and-running)
+
+
+## Contacts
+
+If you have any question please feel free to contact us:
+
+* [Maurizio Branca (@zmoog) | Twitter](https://twitter.com/zmoog/)
