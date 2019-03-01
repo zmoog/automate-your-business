@@ -7,6 +7,9 @@ You can view and download the slide deck from [Slideshare](https://www.slideshar
 
 ## References
 
+### Calculon
+* [Calculon on GitHub](https://github.com/zmoog/calculon).
+
 ### Ansible
 * [Ansible for DevOps - Ansible Book by Jeff Geerling](https://www.ansiblefordevops.com)
 * [About | Jeff Geerling](https://www.jeffgeerling.com/about)
